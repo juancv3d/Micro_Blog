@@ -18,7 +18,7 @@
         <main class="main">
             <section>
                 <h1>Adding new entry</h1>
-                <form action="/entry" method="POST"> 
+                <form class="form" action="/" method="POST"> 
                     <p class="form__input">              
                         <textarea name="log" id="log" class="form__textarea" cols="30" rows="7" aria-label="Entry contents">Write a log for today...</textarea>
                     </p>
@@ -28,15 +28,17 @@
             <section>
                 <h1>Recent Logs</h1>
             </section>
-            <article>
+            {% for log in logs %}
+            <article class=entry>
                 <div>
-                    <h2 class="entry__title">Title</h2>
-                    <time class="entry__date" datetime="2020-01-01">• 2020-01-01</time>
+                    <h2 class="entry__title">{{ log[1] | truncate(20, true) }}</h2>
+                    <time class="entry__date" datetime="{{ log[0] }}">• {{ log[2] }}</time>
                 </div>
                 <p>
-                    Today I couldn't do much programming.
+                    {{ log[1] }}
                 </p>
             </article>
+            {% endfor %}
         </main>
         <footer class="footer">
             <div class="footer__content">

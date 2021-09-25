@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 import datetime
 from pymongo import MongoClient
 import os
+from dotenv import load_dotenv
 
 
 def create_app():
@@ -9,7 +10,7 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'secret'
     # Set up mongo connection
-    client = MongoClient(os.environ.get('MONGO_CLIENT'))
+    client = MongoClient(os.environ.get('MONGODB_URI'))
     app.db = client.microblog
 
     @app.route('/', methods=["GET", "POST"])

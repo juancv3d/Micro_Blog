@@ -15,12 +15,13 @@
                 <l1 class="navbar__navigation-item"><a href="#" class="navbar__link">Calendar</a></l1>
             </u1>
         </header>
+        
         <main class="main">
             <section>
                 <h1>Adding new entry</h1>
                 <form class="form" action="/" method="POST"> 
                     <p class="form__input">              
-                        <textarea name="log" id="log" class="form__textarea" cols="30" rows="7" aria-label="Entry contents">Write a log for today...</textarea>
+                        <textarea name="log" id="log" class="form__textarea" cols="30" rows="7" aria-label="Entry contents" placeholder="Write a log for today..."></textarea>
                     </p>
                     <button class="form__submit" id="submit">Add Entry</button>
                 </form>
@@ -31,11 +32,11 @@
             {% for log in logs %}
             <article class=entry>
                 <div>
-                    <h2 class="entry__title">{{ log[1] | truncate(20, true) }}</h2>
-                    <time class="entry__date" datetime="{{ log[0] }}">• {{ log[2] }}</time>
+                    <h2 class="entry__title">{{ log['log'] | truncate(20, true) }}</h2>
+                    <time class="entry__date" datetime="{{ log['date'] }}">• {{ log['date_formated'] }}</time>
                 </div>
                 <p>
-                    {{ log[1] }}
+                    {{ log['log'] }}
                 </p>
             </article>
             {% endfor %}

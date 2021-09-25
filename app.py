@@ -4,6 +4,8 @@ from pymongo import MongoClient
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
+
 
 def create_app():
     # Create and configure the app

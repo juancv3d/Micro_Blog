@@ -1,6 +1,5 @@
 .vscode
-website/__pycache__
-website/database.db
 .venv/__pycache__
 .venv
 __pycache__
+__pycache__/app.cpython-38.pyc
